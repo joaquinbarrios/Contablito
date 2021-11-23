@@ -21,6 +21,7 @@ db.connect((err)=>{
 })
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 //Cors
 
@@ -111,7 +112,7 @@ app.get('/deletepost/:id', (req,res)=>{
 });
 
 app.use(express.static('fronted'));
-app.listen('3000', () => {
+app.listen(PORT, () => {
     console.log('server started on port 3000')
 });
 

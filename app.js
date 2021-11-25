@@ -53,7 +53,7 @@ app.get('/getdata/:tabla', (req,res)=>{
 
 app.get('/getpost/:id', (req,res)=>{
     
-    let sql=`select* FROM productos WHERE Prod_Descripcion = '${req.params.id}'`;
+    let sql=`select* FROM productos WHERE Prod_Nombre = '${req.params.id}'`;
     let query = db.query(sql, (err,result)=>{
         if(err) throw err;
         console.log(result);
@@ -64,7 +64,7 @@ app.get('/getpost/:id', (req,res)=>{
 
 app.post('/info', (req,res)=>{
     
-    let sql=`select * FROM productos WHERE Prod_Descripcion = '${req.body.producto}'`;
+    let sql=`select * FROM productos WHERE Prod_Nombre = '${req.body.producto}'`;
     let query = db.query(sql, (err,result)=>{
         if(err) throw err;
         console.log(result);
@@ -94,11 +94,42 @@ app.post('/save', (req,res)=>{
      });
 });
 
+app.post('/saveprod', (req,res)=>{
+    let post = {
+         Prod_Id:req.body.id,
+         Prod_Nombre:req.body.nombre,
+         Prod_Desc:req.body.desc,
+         Prod_Stock:req.body.stock,
+         Prod_Precio:req.body.costo
+         };
+    let sql='INSERT INTO productos SET ?';
+    let query = db.query(sql, post, (err,result)=>{
+        if(err) throw err;
+        console.log(result);
+        res.end
+        
+     });
+});
+
+
+
 //Delete post
 
 app.post('/borrar', (req,res)=>{
     
     let sql=`DELETE FROM transacciones WHERE Transaccion_Id=${req.body.radio_value}`;
+    let query = db.query(sql, (err,result)=>{
+        if(err) throw err;
+        console.log(result);
+        
+    });
+});
+
+//Delete post
+
+app.post('/borrar2', (req,res)=>{
+    
+    let sql=`DELETE FROM productos WHERE Prod_Id=${req.body.radio_value}`;
     let query = db.query(sql, (err,result)=>{
         if(err) throw err;
         console.log(result);
@@ -116,18 +147,3 @@ app.get('/updatepost/:id', (req,res)=>{
         res.send('Post updated...');
     });
 });
-
-//Delete post
-
-app.get('/deletepost/:id', (req,res)=>{
-    let newtitle = 'Update Title';
-    let sql=`DELETE FROM postss WHERE id=${req.params.id}`;
-    let query = db.query(sql, (err,result)=>{
-        if(err) throw err;
-        console.log(result);
-        res.send('Post deleted...');
-    });
-});
-
-
-

@@ -40,39 +40,36 @@ function checkea(tabla){
     if (document.getElementById(`${i}`).checked) {
       radio_value = document.getElementById(`${i}`).value;
       let data={radio_value}
-      postJSONData('/borrar',data)
+      postJSONData('/borrar2',data)
       
       }
     }
-  alert('Datos eliminados correctamente, f5')
+  alert('Datos eliminados correctamente, F5')
   }
 
-var transacciones = [];
+var productos = [];
 
-function trans(transacciones){
+function prods(productos){
 
   
   let htmlContentToAppend = "";
-  for(let i = 0; i < transacciones.length; i++){
-      let transaccion = transacciones[i];
+  for(let i = 0; i < productos.length; i++){
+      let producto = productos[i];
 
           htmlContentToAppend += `
           
           
           <table style="width:100%">
           <tr>
-            <td><input class="form-check-input" type="checkbox" value=`+transaccion.Transaccion_Id+` id='${i}''></td>
-            <td>`+transaccion.Transaccion_Producto+`</td>
-            <td>`+transaccion.Transaccion_Tipo+`</td>
-            <td>`+transaccion.Transaccion_Fecha+`</td>
-            <td>`+transaccion.Transaccion_Cantidad+`</td>
-            <td>$`+transaccion.Transaccion_Costo_Unitario+`</td>
-            <td>$`+transaccion.Transaccion_Subtotal+`</td>
-            <td>$`+transaccion.Transaccion_IVA+`</td>
-            <td>$`+transaccion.Transaccion_Total+`</td>
+            <td><input class="form-check-input" type="checkbox" value=`+producto.Prod_Id+` id='${i}''></td>
+            <td>`+producto.Prod_Id+`</td>
+            <td>`+producto.Prod_Nombre+`</td>
+            <td>`+producto.Prod_Desc+`</td>
+            <td>`+producto.Prod_Stock+`</td>
+            <td>$`+producto.Prod_Precio+`</td>
           </tr>
         </table>`
-      document.getElementById("transs").innerHTML = htmlContentToAppend;
+      document.getElementById("prods").innerHTML = htmlContentToAppend;
       
 
 
@@ -81,19 +78,17 @@ function trans(transacciones){
 
 document.addEventListener("DOMContentLoaded", async function(e){
 
-const transacciones = (await getJSONData('http://localhost:3000/getdata/transacciones')).data;
+const productos = (await getJSONData('http://localhost:3000/getdata/productos')).data;
 
-    trans(transacciones)    
+    
+    prods(productos)    
     
     
     document.getElementById('borrar').addEventListener("click",  function(e){
 
-      checkea(transacciones)
+      checkea(productos)
 
 });
 
 
 });
-
-
-  

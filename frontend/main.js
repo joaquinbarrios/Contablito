@@ -46,7 +46,7 @@ function show(productos){
         let producto = productos[i];
 
             htmlContentToAppend += `
-            <option id='selected'>`+producto.Prod_Descripcion+` </option>
+            <option id='selected'>`+producto.Prod_Nombre+` </option>
             
             `
         document.getElementById("productos").innerHTML = htmlContentToAppend;
@@ -89,15 +89,7 @@ function sendd(){
     <td>${total}</td>
     
 `
-    //  const fila = document.getElementById('trashbutton'+ id )
-    
-    //  fila.addEventListener('click', ()=>{
-
-    //   borrar = {id}
-    //   postJSONData('/borrar', borrar)
-    //   tr.innerHTML = ''
-    //   alert('Datos eliminados')
-  // });
+  
 
   });
 }

@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos-contablito.css">
+    <script src="stock.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/b2ac03e5e7.js" crossorigin="anonymous"></script>
-    <script src="transacciones.js"></script>
-    <title>Registros</title>
+    
+    <title>Contablito</title>
 </head>
 <body>
     <nav>
@@ -25,18 +26,17 @@
         <thead>
         <tr>
           <td>M</td>
-          <td>Producto</td>
-          <td>Transaccion_Tipo</td>
-          <td>Transaccion_Fecha</td>
-          <td>Transaccion_Cantidad</td>
-          <td>Transaccion_Costo_Unitario</td>
-          <td>Transaccion_Subtotal</td>
-          <td>Transaccion_IVA</td>
-          <td>Transaccion_Total</td>
+          
+          <td>Producto_Id</td>
+          <td>Producto_Nombre</td>
+          <td>Producto_Descripcion</td>
+          <td>Producto_Stock</td>
+          <td>Producto_Costo</td>
+          
           
         </tr>
       </thead>
-      <tbody id='transs'></tbody>
+      <tbody id='prods'></tbody>
       </table>
     <button id="borrar"  class="btn btn-danger"><i class="bi bi-trash">Borrar</i></button>
  </div>

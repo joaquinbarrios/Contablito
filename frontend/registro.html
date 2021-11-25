@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos-contablito.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b2ac03e5e7.js" crossorigin="anonymous"></script>
+    <script src="transacciones.js"></script>
+    <title>Registros</title>
+</head>
+<body>
+    <nav>
+        <div class="links"><i class="fas fa-home"></i> <a href="index.html">Inicio</a></div>
+        <div class="links"><i class="fas fa-clipboard-list"></i> <a href="registro.html">Registros</a></div>
+        <div class="links"><i class="fas fa-envelope"></i> <a href="contacto.html">Contacto</a></div>
+    </nav>
+
+    
+    <div class="container"> 
+      <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+          <td>M</td>
+          <td>Producto</td>
+          <td>Transaccion_Tipo</td>
+          <td>Transaccion_Fecha</td>
+          <td>Transaccion_Cantidad</td>
+          <td>Transaccion_Costo_Unitario</td>
+          <td>Transaccion_Subtotal</td>
+          <td>Transaccion_IVA</td>
+          <td>Transaccion_Total</td>
+          
+        </tr>
+      </thead>
+      <tbody id='transs'></tbody>
+      </table>
+    <button id="borrar"  class="btn btn-danger"><i class="bi bi-trash">Borrar</i></button>
+ </div>
+    
+
+</body>
+</html>

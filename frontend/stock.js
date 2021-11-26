@@ -78,7 +78,7 @@ function prods(productos){
 
 document.addEventListener("DOMContentLoaded", async function(e){
 
-const productos = (await getJSONData('http://localhost:3000/getdata/productos')).data;
+const productos = (await getJSONData('getdata/productos')).data;
 
     
     prods(productos)    

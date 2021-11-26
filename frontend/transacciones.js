@@ -81,7 +81,7 @@ function trans(transacciones){
 
 document.addEventListener("DOMContentLoaded", async function(e){
 
-const transacciones = (await getJSONData('http://localhost:3000/getdata/transacciones')).data;
+const transacciones = (await getJSONData('/getdata/transacciones')).data;
 
     trans(transacciones)    
     

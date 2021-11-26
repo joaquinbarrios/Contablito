@@ -147,3 +147,14 @@ app.get('/updatepost/:id', (req,res)=>{
         res.send('Post updated...');
     });
 });
+
+//Update post
+app.post('/stock', (req,res)=>{
+    
+    let sql=`UPDATE productos SET Prod_Stock = Prod_Stock + '${req.body.cantidad*req.body.boolean}' WHERE Prod_Id='${req.body.prodid}'`;
+    let query = db.query(sql, (err,result)=>{
+        if(err) throw err;
+        
+        
+    });
+});

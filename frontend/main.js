@@ -65,15 +65,20 @@ function sendd(){
     const fecha = document.getElementById("fecha").value
     const cantidad = document.getElementById("cantidad").value
     const precio = (info[0].Prod_Precio)
+    const prodid = (info[0].Prod_Id)
     const subtotal = precio*cantidad
     const IVA =Math.round((subtotal*22)/100)
     const total = (subtotal+IVA)
     let tipo = venta
-    
-    if (document.getElementById("purchase").checked){tipo='Compra'} 
-
+    let boolean = -1
+    if (document.getElementById("purchase").checked)
+        {tipo='Compra',
+          boolean = 1}
+    let stock = {prodid,cantidad,boolean}
+    console.log(boolean)
     let dataq = {id,producto,tipo,fecha,cantidad,precio,IVA,total,subtotal}
     console.log(dataq)
+      postJSONData('/stock',stock)
       postJSONData('/save',dataq)
       getJSONData('/')
     

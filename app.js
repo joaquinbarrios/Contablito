@@ -21,7 +21,7 @@ db.connect((err)=>{
 })
 
 const app = express();
-const PORT = 3000;
+let  port = process.env.PORT || 3000;
 
 //Cors
 
@@ -34,7 +34,7 @@ app.use(function(req,res,next){
 
 app.use(express.static('frontend'));
 app.use(express.json({limit:'1mb'}));
-app.listen(PORT, () => {
+app.listen(port, () => {
     console.log('server started on port 3000')
 });
 
